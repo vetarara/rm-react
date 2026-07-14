@@ -1,10 +1,22 @@
-// подключает страницу
-
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import CharactersPage from './pages/CharactersPage';
+import CharacterPage from './pages/CharacterPage';
 import './App.css'
 
-const App = () => {
-  return <CharactersPage />;
-}
+export default function App() {
+    return (
+        <HashRouter>
+            <Routes>
+                <Route
+                    path="/"
+                    element={<CharactersPage />}
+                />
 
-export default App
+                <Route
+                    path="/character/:id"
+                    element={<CharacterPage />}
+                />
+            </Routes>
+        </HashRouter>
+    );
+}

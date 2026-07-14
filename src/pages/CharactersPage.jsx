@@ -1,42 +1,37 @@
-// получение данных и хранение состояния
 import CharacterList from '../components/CharacterList/CharacterList';
+import ShowMoreButton from '../components/ShowMoreButton/ShowMoreButton';
 import { useEffect, useState } from 'react';
 import { getCharacters } from '../api/characters';
 
-
 export default function CharactersPage() {
-    // хуки можно вызывать только внутри компонента.
-
-    // characters — массив, который хранится в useState, при первой загрузке в нём 20 персонажей
     const [characters, setCharacters] = useState([]);
     const [page, setPage] = useState(1);
     const [hasNextPage, setHasNextPage] = useState(true);
-    // когда API перестанет возвращать next, кнопку можно скрыть.
 
     useEffect(() => {
         async function loadCharacters() {
-            const data = await getCharacters(page);
+            const data = await getCharacters();
 
-            console.log(data);
-
-            // prevCharacters - предыдущее значение состояния
-            setCharacters(prevCharacters => [
-                ...prevCharacters,
-                ...data.results,
-            ]);
-            // API возвращает data.info.next
-            // Если следующая страница есть, там будет ссылка. Если нет — null
-
+            setCharacters(data.results);
             setHasNextPage(data.info.next !== null);
-            // пока есть следующая страница — кнопка показывается
-            // когда API сообщит, что страниц больше нет — кнопка автоматически исчезнет.
         }
 
         loadCharacters();
-    }, [page]);
+    }, []);
 
-    function handleShowMore() {
-        setPage(prevPage => prevPage + 1);
+    async function handleShowMore() {
+        const nextPage = page + 1;
+
+        const data = await getCharacters(nextPage);
+
+        setCharacters(prevCharacters => [
+            ...prevCharacters,
+            ...data.results,
+        ]);
+
+        setPage(nextPage);
+
+        setHasNextPage(data.info.next !== null);
     }
 
     console.log(characters.length);
@@ -49,18 +44,10 @@ export default function CharactersPage() {
             <p>Количество персонажей: {characters.length}</p>
             <CharacterList characters={characters} />
             {hasNextPage && (
-                <button onClick={handleShowMore}>
-                    Показать ещё
-                </button>
+                <ShowMoreButton
+                    onClick={handleShowMore}
+                />
             )}
         </div>
     );
 }
-
-// после первого запроса: characters
-//  data.results - вторая страница
-// в JS было бы
-// const newArray = [
-//     ...characters,
-//     ...data.results
-// ];
