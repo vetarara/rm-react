@@ -1,10 +1,15 @@
-export default function CharacterCard() {
+export default function CharacterCard({
+    id,
+    name,
+    image,
+    status,
+}) {
     return (
-        <CharacterCard
-            id={1}
-            name="Rick Sanchez"
-            image="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-            status="Alive"
-        />
+        <article>
+            <img src={image} alt={name} />
+            <h2>{name}</h2>
+            <p>{status}</p>
+            <span>{id}</span>
+        </article>
     )
 }
