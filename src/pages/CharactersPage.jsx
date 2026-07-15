@@ -39,8 +39,6 @@ export default function CharactersPage() {
 
     return (
         <div>
-            <h1>Rick and Morty</h1>
-
             <p>Количество персонажей: {characters.length}</p>
             <CharacterList characters={characters} />
             {hasNextPage && (

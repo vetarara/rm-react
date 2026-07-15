@@ -19,3 +19,13 @@ export async function getCharacter(id) {
 
     return response.json();
 }
+
+export async function getEpisodes(ids) {
+    const response = await fetch(`${BASE_URL}/episode/${ids}`);
+
+    if (!response.ok) {
+        throw new Error('Не удалось получить эпизоды');
+    }
+
+    return response.json();
+}
