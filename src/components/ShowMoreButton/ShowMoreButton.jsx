@@ -1,9 +1,11 @@
+import './ShowMoreButton.scss'
+
 export default function ShowMoreButton({
     onClick,
 }) {
     return (
-        <button onClick={onClick}>
-            Показать ещё
+        <button className="button-more" onClick={onClick}>
+            Show more
         </button>
     );
 }

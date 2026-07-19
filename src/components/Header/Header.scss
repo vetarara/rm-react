@@ -1,0 +1,16 @@
+.header__link {
+    display: inline-block;
+    height: fit-content;
+    text-decoration: none;
+    color: var(--text-h);
+    transition: transform .2s ease;
+
+    &:hover {
+        color: var(--text-hover);
+        transform: scale(105%);
+    }
+}
+
+h1 {
+    margin-bottom: 3rem;
+}

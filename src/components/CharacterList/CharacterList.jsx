@@ -1,11 +1,9 @@
 import CharacterCard from '../CharacterCard/CharacterCard';
+import './CharacterList.scss'
 
 function CharacterList({ characters }) {
     return (
-        <>
-
-            <h2>Карточек: {characters.length}</h2>
-            
+        <>            
             {characters.map(character => (
                 <CharacterCard
                     key={character.id}

@@ -1,7 +1,8 @@
-import CharacterList from '../components/CharacterList/CharacterList';
-import ShowMoreButton from '../components/ShowMoreButton/ShowMoreButton';
+import CharacterList from '../../components/CharacterList/CharacterList';
+import ShowMoreButton from '../../components/ShowMoreButton/ShowMoreButton';
 import { useEffect, useState } from 'react';
-import { getCharacters } from '../api/characters';
+import { getCharacters } from '../../api/characters';
+import './CharactersPage.scss'
 
 export default function CharactersPage() {
     const [characters, setCharacters] = useState([]);
@@ -38,14 +39,15 @@ export default function CharactersPage() {
     console.log(characters);
 
     return (
-        <div>
-            <p>Количество персонажей: {characters.length}</p>
-            <CharacterList characters={characters} />
-            {hasNextPage && (
-                <ShowMoreButton
-                    onClick={handleShowMore}
-                />
-            )}
-        </div>
+        <>
+            <div className="characters-list">
+                <CharacterList characters={characters} />
+                {hasNextPage && (
+                    <ShowMoreButton
+                        onClick={handleShowMore}
+                    />
+                )}
+            </div>
+        </>
     );
 }
