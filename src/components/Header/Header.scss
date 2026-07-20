@@ -1,3 +1,8 @@
+.header {
+    margin: 1rem 0;
+    text-align: left;
+}
+
 .header__link {
     display: inline-block;
     height: fit-content;
@@ -7,8 +12,13 @@
 
     &:hover {
         color: var(--text-hover);
-        transform: scale(105%);
+        transform: scale(110%);
     }
+}
+
+.header__logo {
+    width: 15rem;
+    height: auto;
 }
 
 h1 {

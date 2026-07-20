@@ -3,9 +3,9 @@ import './Header.scss'
 
 export default function Header() {
     return (
-        <header>
+        <header className="header">
             <Link className="header__link" to="/">
-                <h1>Rick and Morty</h1>
+                <img className="header__logo" src={`${import.meta.env.BASE_URL}icons/rm-logo.svg`} alt="Rick and Morty wiki" />
             </Link>
         </header>
     )

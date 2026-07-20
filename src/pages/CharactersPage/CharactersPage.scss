@@ -2,7 +2,18 @@
     margin-bottom: 4rem;
 }
 
-.button-more {
-    grid-column: 1 / -1;
-    justify-self: center;
+
+.characters-more {
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.characters-count {
+    font-size: 1.2rem;
+    font-family: var(--sans);
+    font-weight: 700;
+    text-align: right;
+    letter-spacing: 0.03em;
 }

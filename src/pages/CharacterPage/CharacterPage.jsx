@@ -48,20 +48,26 @@ export default function CharacterPage() {
     return (
         <>
             <section className="info">
-                <img className="info__img" src={character.image} alt={character.name} />
                 <h1 className="info__name">{character.name}</h1>
-                <p className={`info__status ${statusClasses[character.status]}`}>Status: {character.status}</p>
-                <p>Species: {character.species}</p>
-                <p>Gender: {character.gender}</p>
-                <p>Character's origin location: {character.origin.name}</p>
-                <p>Character's last known location endpoint: {character.location.name}</p>
+                <div class="info__wrapper">
+                    <img className="info__img" src={character.image} alt={character.name} />
+                    <div class="info__details">
+                        <p className={`info__status ${statusClasses[character.status]}`}>{character.status}</p>
+                        <p>Species: <span class="info__data">{character.species}</span></p>
+                        <p>Gender: <span class="info__data">{character.gender}</span></p>
+                        <p>Character's origin location: <span class="info__data">{character.origin.name}</span></p>
+                        <p>Character's last known location endpoint: <span class="info__data">{character.location.name}</span></p>
+                    </div>
+                </div>
             </section>
             <section className="episodes">
-                <h2>Episodes featuring the character: ({character.episode.length})</h2>
+                <h2>Episodes featuring the character: {character.episode.length}</h2>
                 <ol className="episodes__list">
                     {episodes.map(episode => (
-                        <li key={episode.id}>
-                            <strong>{episode.episode}</strong> — {episode.name} ({episode.air_date})
+                        <li className="episodes__item" key={episode.id}>
+                            <p>{episode.episode}</p>
+                            <p>{episode.name}</p>
+                            <p>({episode.air_date})</p>
                         </li>
                     ))}
                 </ol>

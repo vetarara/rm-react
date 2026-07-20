@@ -6,7 +6,6 @@ export default function CharacterCard({
     id,
     name,
     image,
-    origin,
     location,
     status
 }) {
@@ -23,7 +22,6 @@ export default function CharacterCard({
                 <div className="character-card__details">
                     <h2 className='character-card__name'>{name}</h2>
                     <p className={`character-card__status ${statusClasses[status]}`}>{status}</p>
-                    <p className='character-card__origin'>Origin location: {origin.name}</p>
                     <p className='character-card__last-location'>Last known location: {location.name}</p>
                 </div>
             </Link>

@@ -1,0 +1,13 @@
+.footer {
+    margin: 1.5rem 0;
+    text-transform: lowercase;
+    letter-spacing: -0.02rem;
+}
+
+.footer__link {
+    color: var(--text);
+    font-weight: 900;
+    text-decoration: none;
+    letter-spacing: 0.03rem;
+    text-transform: none;
+}
