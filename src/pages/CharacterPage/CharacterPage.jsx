@@ -49,14 +49,14 @@ export default function CharacterPage() {
         <>
             <section className="info">
                 <h1 className="info__name">{character.name}</h1>
-                <div class="info__wrapper">
+                <div className="info__wrapper">
                     <img className="info__img" src={character.image} alt={character.name} />
-                    <div class="info__details">
+                    <div className="info__details">
                         <p className={`info__status ${statusClasses[character.status]}`}>{character.status}</p>
-                        <p>Species: <span class="info__data">{character.species}</span></p>
-                        <p>Gender: <span class="info__data">{character.gender}</span></p>
-                        <p>Character's origin location: <span class="info__data">{character.origin.name}</span></p>
-                        <p>Character's last known location endpoint: <span class="info__data">{character.location.name}</span></p>
+                        <p>Species: <span className="info__data">{character.species}</span></p>
+                        <p>Gender: <span className="info__data">{character.gender}</span></p>
+                        <p>Character's origin location: <span className="info__data">{character.origin.name}</span></p>
+                        <p>Character's last known location endpoint: <span className="info__data">{character.location.name}</span></p>
                     </div>
                 </div>
             </section>

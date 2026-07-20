@@ -60,6 +60,7 @@
 .episodes__list {
   list-style-type: none;
   font-family: var(--sans);
+  padding: 0;
 }
 
 .episodes__item {
@@ -77,5 +78,25 @@
 
   &:nth-child(odd) {
     background-color: var(--code-bg);
+  }
+}
+
+@media (max-width: 992px) {
+  .info__wrapper {
+    display: block;
+    text-align: center;
+  }
+  .info__img {
+    margin-bottom: 1.5rem;
+    max-width: 18rem;
+  }
+
+  .info__status {
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .episodes__item {
+    flex-direction: column;
   }
 }

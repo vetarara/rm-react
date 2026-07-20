@@ -1,5 +1,11 @@
 .characters-list {
     display: grid;
-    grid-template-columns: 49% 49%;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem 2rem;
+}
+
+@media (max-width: 992px) {
+    .characters-list {
+        display: block;
+    }
 }

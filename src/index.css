@@ -55,10 +55,6 @@
   }
 }
 
-body {
-  margin: 0;
-}
-
 #root {
   width: 1126px;
   max-width: 100%;
@@ -70,7 +66,12 @@ body {
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+}
+
 main {
+  margin: 0 1rem;
   position: relative;
   flex-grow: 1;
 }
@@ -100,4 +101,17 @@ p {
     text-align: end;
     font-size: 1rem;
     text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .other-pagination {
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  h1 {
+    margin-top: 5rem;
+  }
+  
 }
