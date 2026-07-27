@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { getCharacter, getEpisodes } from '../../api/characters';
+import { getCharacter } from '../../api/characters';
+import { getEpisodes } from '../../api/episodes';
 
 import './CharacterPage.scss'
 

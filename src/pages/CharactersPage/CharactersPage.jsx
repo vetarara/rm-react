@@ -6,9 +6,13 @@ import { getCharacters } from '../../api/characters';
 import './CharactersPage.scss'
 
 export default function CharactersPage() {
+    // хранит массив загруженных персонажей
     const [characters, setCharacters] = useState([]);
+    // Хранит номер текущей страницы API. При первой загрузке - 1. После нажатия "Show more" становится 2, 3, 4 и т.д.
     const [page, setPage] = useState(1);
+    // Показывает, существует ли следующая страница. Используется для отображения кнопки "Show more"
     const [hasNextPage, setHasNextPage] = useState(true);
+    // Хранит общее количество персонажей, которое приходит от API
     const [totalCount, setTotalCount] = useState(0);
 
     useEffect(() => {
@@ -44,7 +48,7 @@ export default function CharactersPage() {
     return (
         <>
             <Link className='other-pagination' to={`/alt-pagination`}>
-            See the same page with classic pagination
+                See the same page with classic pagination
             </Link>
             <h1>All the characters</h1>
             <div className="characters-list">
