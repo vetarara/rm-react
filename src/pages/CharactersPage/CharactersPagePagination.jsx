@@ -10,11 +10,13 @@ export default function CharactersPagePagination() {
     const [characters, setCharacters] = useState([]);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
-    // состояние загрузки
     const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     // создаётся после каждого рендера, но вызывается только тогда, когда изменяется page
     async function loadCharacters() {
+        setError(null); // сбрасываем старую ошибку
+
         try {
             const data = await getCharacters(page);
 
@@ -26,6 +28,7 @@ export default function CharactersPagePagination() {
             setTotalPages(data.info.pages);
         } catch (error) {
             console.error('Failed to load characters:', error);
+            setError(error.message);
         } finally {
             setIsLoading(false);
         }
@@ -34,14 +37,6 @@ export default function CharactersPagePagination() {
     useEffect(() => {
         loadCharacters();
     }, [page]);
-
-    function handlePrev() {
-        setPage(prev => prev - 1);
-    }
-
-    function handleNext() {
-        setPage(prev => prev + 1);
-    }
 
     if (isLoading) {
         return <Loader />;
@@ -60,11 +55,14 @@ export default function CharactersPagePagination() {
                     <p>No characters found.</p>
                 )}
             </div>
+            {error && (
+                <p className="error">
+                    Too many requests. Please try again in a few seconds.
+                </p>
+            )}
             <Pagination
                 page={page}
                 totalPages={totalPages}
-                onPrev={handlePrev}
-                onNext={handleNext}
                 onPageChange={setPage}
             />
         </>

@@ -71,7 +71,7 @@ export default function CharactersPage() {
 
     return (
         <>
-            <Link className='other-pagination' to={`/alt-pagination`}>
+            <Link className='other-pagination' to={`/classic-pagination`}>
                 See the same page with classic pagination
             </Link>
             <h1>All the characters</h1>

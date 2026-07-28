@@ -3,9 +3,10 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 0.5rem;
+    list-style-type: none;
 }
 
-.pagination__button {
+.pagination__item {
     padding: 1rem 1.2rem;
     width: fit-content;
     background-color: var(--bg-card);
@@ -33,15 +34,9 @@
     }
 
     &[disabled]:hover {
-        border-color:rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.1);
         box-shadow: var(--shadow);
         transform: none;
         cursor: auto;
     }
-}
-
-.pagination__dots {
-    padding: 0 0.5rem;
-    font-size: 2rem;
-    font-weight: 900;
 }

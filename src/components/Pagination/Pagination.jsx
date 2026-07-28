@@ -1,83 +1,39 @@
-import './Pagination.scss'
+import ReactPaginateModule from 'react-paginate';
+import './Pagination.scss';
 
 export default function Pagination({
     page,
     totalPages,
-    onPrev,
-    onNext,
-    onPageChange
+    onPageChange,
 }) {
 
-    const items = [];
+    const ReactPaginate = ReactPaginateModule.default;
 
-    if (totalPages <= 7) {
-        for (let i = 1; i <= totalPages; i++) {
-            items.push(i);
-        }
-    } else if (page <= 4) {
-        items.push(1, 2, 3, 4, 5, 6, '...', totalPages);
-    } else if (page >= totalPages - 3) {
-        items.push(
-            1,
-            '...',
-            totalPages - 3,
-            totalPages - 2,
-            totalPages - 1,
-            totalPages
-        );
-    } else {
-        items.push(
-            1,
-            '...',
-            page - 2,
-            page - 1,
-            page,
-            page + 1,
-            page + 2,
-            '...',
-            totalPages
-        );
+    function handlePageClick(event) {
+        onPageChange(event.selected + 1)
     }
 
     return (
-        <div className="pagination">
-            <button
-                className="pagination__button"
-                type="button"
-                onClick={onPrev}
-                disabled={page === 1}
-            >
-                Prev
-            </button>
+        <ReactPaginate
+            breakLabel='...'
+            nextLabel='>' //
+            previousLabel='<'
+            pageCount={totalPages}
+            pageRangeDisplayed={5}
+            marginPagesDisplayed={1}
+            forcePage={page - 1}
+            onPageChange={handlePageClick}
+            renderOnZeroPageCount={null}
 
-            {items.map((item, index) =>
-                item === '...' ? (
-                    <span
-                        key={`dots-${index}`}
-                        className="pagination__dots"
-                    >
-                        ...
-                    </span>
-                ) : (
-                    <button
-                        type="button"
-                        key={item}
-                        onClick={() => onPageChange(item)}
-                        className={page === item ? 'pagination__button active' : 'pagination__button'}
-                    >
-                        {item}
-                    </button>
-                )
-            )}
-
-            <button
-                type="button"
-                className="pagination__button"
-                onClick={onNext}
-                disabled={page === totalPages}
-            >
-                Next
-            </button>
-        </div>
-    );
+            containerClassName="pagination"
+            pageClassName="pagination__item"
+            pageLinkClassName="pagination__link"
+            activeClassName="pagination__item--active"
+            previousClassName="pagination__item"
+            nextClassName="pagination__item"
+            disabledClassName="pagination__item--disabled"
+            breakClassName="pagination__item"
+            breakLinkClassName="pagination__link"
+        />
+    )
 }

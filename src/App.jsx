@@ -17,7 +17,7 @@ export default function App() {
                     />
 
                     <Route
-                        path="/alt-pagination"
+                        path="/classic-pagination"
                         element={<CharactersPagePagination />}
                     />
 
