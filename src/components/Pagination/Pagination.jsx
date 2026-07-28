@@ -41,8 +41,9 @@ export default function Pagination({
 
     return (
         <div className="pagination">
-            <button 
+            <button
                 className="pagination__button"
+                type="button"
                 onClick={onPrev}
                 disabled={page === 1}
             >
@@ -59,6 +60,7 @@ export default function Pagination({
                     </span>
                 ) : (
                     <button
+                        type="button"
                         key={item}
                         onClick={() => onPageChange(item)}
                         className={page === item ? 'pagination__button active' : 'pagination__button'}
@@ -69,6 +71,7 @@ export default function Pagination({
             )}
 
             <button
+                type="button"
                 className="pagination__button"
                 onClick={onNext}
                 disabled={page === totalPages}

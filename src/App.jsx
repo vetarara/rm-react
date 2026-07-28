@@ -1,5 +1,4 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
-
 import Header from './components/Header/Header';
 import CharactersPage from './pages/CharactersPage/CharactersPage';
 import CharactersPagePagination from './pages/CharactersPage/CharactersPagePagination';

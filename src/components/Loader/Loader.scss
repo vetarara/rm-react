@@ -1,0 +1,13 @@
+.loader {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .loader__image {
+        max-width: 300px;
+    }
+}
